@@ -1,6 +1,6 @@
 #!/bin/sh
 
-DEFAULT_RAM=6G
+DEFAULT_RAM=12G
 
 if [ ! -f eula.txt ]; then
      if [ "$EULA" != "" ]; then
@@ -16,6 +16,15 @@ if [ ! -d "world" ] && [ -d "server-data" ]; then
      echo "Copying previous data..."
      cp -Rfv server-data/* .
 fi
+
+# May want to update to use the settings shown on the rlcraft site:
+#
+### The default 1GB of RAM that is allocated is NOT enough.  Recommend allocating 3 to 4GB's of RAM.
+### You can do this by going to Launch Options, enabling JVM Arguments, and changing "-Xmx1G" to "-Xmx4G".
+###
+### My JVM Arguments looks like this:
+###
+### -Xmx4G -XX:+UseConcMarkSweepGC -XX:+CMSIncrementalMode -XX:-UseAdaptiveSizePolicy -Xmn128M
 
 # Parameters from aikar's post:
 # https://aikar.co/2018/07/02/tuning-the-jvm-g1gc-garbage-collector-flags-for-minecraft/

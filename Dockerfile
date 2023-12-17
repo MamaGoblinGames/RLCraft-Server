@@ -1,5 +1,4 @@
-FROM alpine:3.12 AS base
-RUN apk add curl
+FROM alpine:3.19 AS base
 COPY start.sh /
 RUN mkdir server \
     && chmod +x start.sh
